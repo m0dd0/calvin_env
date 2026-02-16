@@ -1,3 +1,4 @@
-recursive-include conf *.yaml
-recursive-include conf *.yml
-recursive-include data *
+graft conf
+graft data
+global-exclude *.pyc
+global-exclude __pycache__
