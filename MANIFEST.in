@@ -1,0 +1,3 @@
+recursive-include conf *.yaml
+recursive-include conf *.yml
+recursive-include data *

@@ -38,6 +38,7 @@ meta = dict(
     author_email=find_meta(_meta, "__email__"),
     url=" https://github.com/mees/calvin_env",
     packages=find_packages(exclude=["tests"]),
+    include_package_data=True,
     install_requires=install_requires,
 )
 
