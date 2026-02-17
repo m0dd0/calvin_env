@@ -227,6 +227,38 @@ def get_episode_lengths(load_dir, num_frames):
     return episode_lengths, render_start_end_ids
 
 
+def get_config_path(config_name=None):
+    """
+    Get the path to calvin_env config directory or a specific config file.
+    
+    This utility function allows you to access config files without needing to know
+    the installed location of the calvin_env package.
+    
+    Args:
+        config_name: Optional name/path of a config file relative to the conf directory.
+                    If None, returns the path to the conf directory.
+    
+    Returns:
+        Path object pointing to the conf directory or specific config file.
+    
+    Examples:
+        >>> # Get conf directory
+        >>> conf_dir = get_config_path()
+        >>> # Get specific config file
+        >>> config_path = get_config_path('config_data_collection.yaml')
+        >>> # Get config in subdirectory
+        >>> eval_config = get_config_path('full_evaluation_configs/eval_D.yaml')
+    """
+    # Get the path to the calvin_env package directory
+    calvin_env_dir = Path(__file__).parent.parent
+    conf_dir = calvin_env_dir.parent / "conf"
+    
+    if config_name is None:
+        return conf_dir
+    
+    return conf_dir / config_name
+
+
 if __name__ == "__main__":
     import doctest
 
